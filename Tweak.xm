@@ -31,10 +31,35 @@
                     NSString *alertMessage = [NSString stringWithFormat:@"Would you like to view NSUserDefaults for %@?", processName];
                     UIAlertController *alert = [%c(UIAlertController) alertControllerWithTitle:@"" message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
                     [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                        //Display an Action Sheet with options
+                        UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"ShareUserDefaults" message:@"Options to view UserDefaults" preferredStyle:UIAlertControllerStyleActionSheet];
+
+                        //UITextView displaying action
+                        UIAlertAction *textViewAction = [UIAlertAction actionWithTitle:@"UITextView" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                            //Add a text view to display the contents of the userdefaults
+                            UIViewController *vc = [[UIViewController alloc] init];
+                            vc.modalPresentationStyle = UIModalPresentationFormSheet;
+
+                            UITextView *textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 0, rootViewController.view.frame.size.width, rootViewController.view.frame.size.height)];
+                            [textView setBackgroundColor:[UIColor blackColor]];
+                            [textView setTextColor:[UIColor greenColor]];
+                            [textView insertText: userDefaults];
+                            [vc.view addSubview: textView];
+
+                            [rootViewController presentViewController:vc animated:YES completion:nil];
+                        }];
+
+                        //Sharing text file action
+                        UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"Share" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                            //Share a .txt file, converting to a .json file requres writing data to the file system 
+                            UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[userDefaults] applicationActivities:nil];
+                            [rootViewController presentViewController:activityCtr animated:YES completion:nil];
+                        }];
                         
-                        //Share a .txt file, converting to a .json file requres writing data to the file system 
-                        UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[userDefaults] applicationActivities:nil];
-                        [rootViewController presentViewController:activityCtr animated:YES completion:nil];
+                        [actionSheet addAction: textViewAction];
+                        [actionSheet addAction: shareAction];
+
+                        [rootViewController presentViewController:actionSheet animated:YES completion:nil];
                     }]];
 
                     [alert addAction:[UIAlertAction actionWithTitle:@"No" style:UIAlertActionStyleCancel handler:nil]];
@@ -44,3 +69,22 @@
         }];
     }
 }
+
+
+/*
+
+
+// //configuring button on the bottom of the scrollview
+// CGFloat buttonHeight = 44.0;
+// CGFloat contentInset = 8.0;
+
+// textView.textContainerInset = UIEdgeInsetsMake(contentInset, contentInset, (buttonHeight+contentInset*2), contentInset);
+
+// //Add close button
+// UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
+// [button setTitle:@"Close" forState:UIControlStateNormal];
+// [button setTitleColor:[UIColor greenColor] forState:normal];
+// [button setBackgroundColor: [UIColor grayColor]];
+// button.frame = CGRectMake(contentInset,  textView.contentSize.height - buttonHeight - contentInset, textView.contentSize.width-contentInset*2, buttonHeight);
+// [textView addSubview: button];
+*/
