@@ -16,3 +16,4 @@ A Theos tweak to share the contents of `NSUserDefaults` from a running process v
 ## Future Enhancements
 - Ability to view `NSUserDefaults` on the phone.
 - Ability to turn on/off the tweak in settings.
+- Ability to send UserDefaults with a `.json` extension. 
