@@ -12,3 +12,7 @@ A Theos tweak to share the contents of UserDefaults from a running process via `
 
 ## Testing Enviroment
 - This tweak was tested on an iPhone 8 Plus running iOS 14.8 and jailbroken with Checkra1n.
+
+## Future Enhancements
+- Ability to view NSUserDefaults on the phone
+- Ability to turn on/off the tweak in settings
