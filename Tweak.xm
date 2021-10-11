@@ -25,6 +25,8 @@
                 NSString *userDefaults = [[[NSUserDefaults standardUserDefaults] dictionaryRepresentation] description];
 
                 //Display an alert message when the app opens, but not when AirDrop is present
+                //Reason: its annoying to have this pop up when trying to share, but there might
+                //be a reason why would want to know Airdrops Userdefaults..
                 if (![processName isEqualToString:@"AirDrop"]) {
                     NSString *alertMessage = [NSString stringWithFormat:@"Would you like to view NSUserDefaults for %@?", processName];
                     UIAlertController *alert = [%c(UIAlertController) alertControllerWithTitle:@"" message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
