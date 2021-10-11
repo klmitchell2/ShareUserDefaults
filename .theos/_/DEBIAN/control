@@ -1,0 +1,10 @@
+Package: com.yourcompany.shareuserdefaults
+Name: ShareUserDefaults
+Architecture: iphoneos-arm
+Description: An awesome MobileSubstrate tweak!
+Maintainer: Kevin Mitchell
+Author: Kevin Mitchell
+Section: Tweaks
+Depends: mobilesubstrate (>= 0.9.5000)
+Version: 0.0.1-2+debug
+Installed-Size: 220
