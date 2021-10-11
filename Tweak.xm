@@ -69,22 +69,3 @@
         }];
     }
 }
-
-
-/*
-
-
-// //configuring button on the bottom of the scrollview
-// CGFloat buttonHeight = 44.0;
-// CGFloat contentInset = 8.0;
-
-// textView.textContainerInset = UIEdgeInsetsMake(contentInset, contentInset, (buttonHeight+contentInset*2), contentInset);
-
-// //Add close button
-// UIButton *button = [UIButton buttonWithType:UIButtonTypeSystem];
-// [button setTitle:@"Close" forState:UIControlStateNormal];
-// [button setTitleColor:[UIColor greenColor] forState:normal];
-// [button setBackgroundColor: [UIColor grayColor]];
-// button.frame = CGRectMake(contentInset,  textView.contentSize.height - buttonHeight - contentInset, textView.contentSize.width-contentInset*2, buttonHeight);
-// [textView addSubview: button];
-*/
