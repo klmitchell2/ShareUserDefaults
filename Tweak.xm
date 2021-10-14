@@ -29,7 +29,7 @@
                 //be a reason why would want to know Airdrops Userdefaults..
                 if (![processName isEqualToString:@"AirDrop"]) {
                     NSString *alertMessage = [NSString stringWithFormat:@"Would you like to view NSUserDefaults for %@?", processName];
-                    UIAlertController *alert = [%c(UIAlertController) alertControllerWithTitle:@"" message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
                     [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
                         //Display an Action Sheet with options
                         UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"ShareUserDefaults" message:@"Options to view UserDefaults" preferredStyle:UIAlertControllerStyleActionSheet];
