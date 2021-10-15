@@ -31,7 +31,8 @@
                     NSString *alertMessage = [NSString stringWithFormat:@"Would you like to view NSUserDefaults for %@?", processName];
                     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:alertMessage preferredStyle:UIAlertControllerStyleAlert];
                     [alert addAction:[UIAlertAction actionWithTitle:@"Yes" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                        //Display an Action Sheet with options
+                        
+                         //Display an Action Sheet with options
                         UIAlertController *actionSheet = [UIAlertController alertControllerWithTitle:@"ShareUserDefaults" message:@"Options to view UserDefaults" preferredStyle:UIAlertControllerStyleActionSheet];
 
                         //UITextView displaying action
@@ -51,7 +52,7 @@
 
                         //Sharing text file action
                         UIAlertAction *shareAction = [UIAlertAction actionWithTitle:@"Share" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-                            //Share a .txt file, converting to a .json file requres writing data to the file system 
+                            //Share a .txt file, converting to a .json file requres writing data to the file system, we dont want to dirty the file system if its not needed
                             UIActivityViewController *activityCtr = [[UIActivityViewController alloc] initWithActivityItems:@[userDefaults] applicationActivities:nil];
                             [rootViewController presentViewController:activityCtr animated:YES completion:nil];
                         }];
